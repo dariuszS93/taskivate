@@ -1,31 +1,32 @@
 import { useState } from "react";
 import './TodoList.css'
+import {Task} from "../types/task.ts";
 
 const TodoList = () => {
-    const [tasks, setTasks] = useState([]);
-    const [taskText, setTaskText] = useState("");
+    const [tasks, setTasks] = useState<Task[]>([]);
+    const [taskText, setTaskText] = useState<string>("");
 
     const addTask = () => {
-        const newTask = {id: Date.now(), text: taskText, completed: false};
+        const newTask: Task = { id: Date.now(), text: taskText, completed: false };
 
         if(taskText.trim() === "") return;
 
-        setTasks([...tasks, newTask]);
+        setTasks((prev) =>[...prev, newTask]);
         setTaskText("");
     };
 
-    const deleteTask = (id) => {
-        setTasks(tasks.filter(task => task.id !== id));
+    const deleteTask = (id: number) => {
+        setTasks((prev) => prev.filter(task => task.id !== id));
     };
 
-    const markTaskAsCompleted = (id) => {
-        setTasks(tasks.map(task => task.id === id ? {...task, completed: !task.completed} : task));
+    const toggleTaskCompleted = (id: number) => {
+        setTasks((prev) => prev.map(task => task.id === id ? {...task, completed: !task.completed} : task));
     };
 
     return(
         <div>
             <h2>Tasks list</h2>
-            <input 
+            <input
                 type="text"
                 value={taskText}
                 onChange={e => setTaskText(e.target.value)}
@@ -35,9 +36,9 @@ const TodoList = () => {
             <ul>
                 {
                     tasks.map((task) => (
-                        <li 
+                        <li
                             key={task.id}
-                            onClick={() => markTaskAsCompleted(task.id)}
+                            onClick={() => toggleTaskCompleted(task.id)}
                             style={{textDecoration: task.completed ? "line-through" : "none", cursor: "pointer"}}
                         >
                             {task.text}
