@@ -15,6 +15,8 @@ In the long run, Taskivate is meant to support:
 - reminders and notifications (e.g. web push / system notifications)
 - gamification elements: quests, levels, rewards, stats
 
+In the future there is a plan to create full application and release it to some app stores.
+
 ---
 
 ## Tech stack
@@ -48,25 +50,34 @@ Key files and directories:
 - npm
 
 On macOS you can check versions with:
+
 ```
 node -v
 npm -v
 ```
+
 If you do not have Node.js installed, you can download it from:
 https://nodejs.org/
+
 ---
 
 ## Installation
+
 Clone the repository and install dependencies:
 git clone <your-repo-url>.git
+
+```
 cd taskivate
 npm install
+```
+
 ---
 
 ## Running the app
+
 Start the development server (with HMR):
 
-```npm run dev```
+`npm run dev`
 
 By default, the app will be available at:
 
@@ -77,22 +88,25 @@ You can change the port using Vite options if needed.
 ---
 
 ## Production build
+
 Create an optimized production build:
 
-```npm run build```
+`npm run build`
 
 Preview the built app locally:
 
-```npm run preview```
+`npm run preview`
 
 The build output is generated in the dist/ directory.
 
 ---
+
 ## Code quality
+
 Linting
 Run ESLint for the whole project:
 
-```npm run lint```
+`npm run lint`
 
 The configuration includes:
 
@@ -107,23 +121,29 @@ Formatting (Prettier)
 
 Automatically format the entire repository:
 
-```npm run format```
+`npm run format`
 
 Recommended IDE setup (e.g. WebStorm):
 
 set Prettier as the default formatter
 enable format on save
 enable ESLint for the project and show problems in the editor
+
 ---
+
 ## Code conventions
+
 Use TypeScript for React components and logic (.ts / .tsx).
 Prefer function components with hooks (useState, useEffect, etc.).
 Keep domain types (e.g. Task) in src/types.
 Extract complex logic from JSX into helper functions or custom hooks.
 Keep components small and focused when possible.
 You can adapt these rules to your personal preferences as the project evolves.
+
 ---
+
 ## Roadmap / plans
+
 Planned or possible next steps for Taskivate:
 
 [ ] Extended Task model:
@@ -155,4 +175,3 @@ basic theming (light / dark)
 unit tests for components (e.g. Jest + React Testing Library)
 basic integration tests
 This list is open and will evolve together with the project and learning goals.
----
