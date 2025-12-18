@@ -54,13 +54,17 @@ npm -v
 ```
 If you do not have Node.js installed, you can download it from:
 https://nodejs.org/
+
 ---
 
 ## Installation
 Clone the repository and install dependencies:
 git clone <your-repo-url>.git
+```
 cd taskivate
 npm install
+```
+
 ---
 
 ## Running the app
@@ -88,6 +92,7 @@ Preview the built app locally:
 The build output is generated in the dist/ directory.
 
 ---
+
 ## Code quality
 Linting
 Run ESLint for the whole project:
@@ -114,7 +119,9 @@ Recommended IDE setup (e.g. WebStorm):
 set Prettier as the default formatter
 enable format on save
 enable ESLint for the project and show problems in the editor
+
 ---
+
 ## Code conventions
 Use TypeScript for React components and logic (.ts / .tsx).
 Prefer function components with hooks (useState, useEffect, etc.).
@@ -122,7 +129,9 @@ Keep domain types (e.g. Task) in src/types.
 Extract complex logic from JSX into helper functions or custom hooks.
 Keep components small and focused when possible.
 You can adapt these rules to your personal preferences as the project evolves.
+
 ---
+
 ## Roadmap / plans
 Planned or possible next steps for Taskivate:
 
@@ -155,4 +164,3 @@ basic theming (light / dark)
 unit tests for components (e.g. Jest + React Testing Library)
 basic integration tests
 This list is open and will evolve together with the project and learning goals.
----
