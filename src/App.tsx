@@ -1,10 +1,10 @@
-import TodoList from './components/TodoList';
+import TaskList from './components/TaskList.tsx';
 
 function App() {
   return (
     <div>
       <h1>Taskivate</h1>
-      <TodoList />
+      <TaskList />
     </div>
   );
 }
