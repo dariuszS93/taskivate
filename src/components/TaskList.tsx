@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './TodoList.css';
 import { useTasks } from '../hooks/useTasks.ts';
+import { TaskItem } from './TaskItem.tsx';
 
 const TaskList = () => {
   const [taskText, setTaskText] = useState<string>('');
@@ -18,7 +19,6 @@ const TaskList = () => {
     <div>
       <h2>Tasks list</h2>
       <input
-        type="text"
         value={taskText}
         onChange={(e) => setTaskText(e.target.value)}
         placeholder="Add task..."
@@ -26,24 +26,12 @@ const TaskList = () => {
       <button onClick={handleAddTask}>Add task</button>
       <ul>
         {tasks.map((task) => (
-          <li
+          <TaskItem
             key={task.id}
-            onClick={() => toggleTask(task.id)}
-            style={{
-              textDecoration: task.completed ? 'line-through' : 'none',
-              cursor: 'pointer',
-            }}
-          >
-            {task.text}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                deleteTask(task.id);
-              }}
-            >
-              ❌
-            </button>
-          </li>
+            task={task}
+            onToggle={toggleTask}
+            onDelete={deleteTask}
+          />
         ))}
       </ul>
     </div>
