@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './TodoList.css';
 import { useTasks } from '../hooks/useTasks.ts';
 
-const TodoList = () => {
+const TaskList = () => {
   const [taskText, setTaskText] = useState<string>('');
   const { tasks, addTask, toggleTask, deleteTask } = useTasks();
 
@@ -50,4 +50,4 @@ const TodoList = () => {
   );
 };
 
-export default TodoList;
+export default TaskList;
