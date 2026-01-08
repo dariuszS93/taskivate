@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './TodoList.css';
+import './TaskList.css';
 import { useTasks } from '../hooks/useTasks.ts';
 import { TaskItem } from './TaskItem.tsx';
 
