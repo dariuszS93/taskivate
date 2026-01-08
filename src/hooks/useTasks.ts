@@ -6,7 +6,7 @@ type TaskAction =
   | { type: 'TOGGLE_TASK'; payload: { id: number } }
   | { type: 'DELETE_TASK'; payload: { id: number } };
 
-const taskReducer = (state: Task[], action: TaskAction): Task[] => {
+const tasksReducer = (state: Task[], action: TaskAction): Task[] => {
   switch (action.type) {
     case 'ADD_TASK': {
       return [
@@ -30,7 +30,7 @@ const taskReducer = (state: Task[], action: TaskAction): Task[] => {
 };
 
 export const useTasks = () => {
-  const [tasks, dispatch] = useReducer(taskReducer, []);
+  const [tasks, dispatch] = useReducer(tasksReducer, []);
 
   const addTask = (text: string) => {
     dispatch({ type: 'ADD_TASK', payload: { text } });
@@ -46,3 +46,5 @@ export const useTasks = () => {
 
   return { tasks, addTask, toggleTask, deleteTask };
 };
+
+export { tasksReducer };
