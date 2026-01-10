@@ -34,8 +34,8 @@ const STORAGE_KEY = 'taskivate.tasks';
 const loadTasks = (): Task[] => {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) as Task[] : [];
-  }catch {
+    return raw ? (JSON.parse(raw) as Task[]) : [];
+  } catch {
     return [];
   }
 };
