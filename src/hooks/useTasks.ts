@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { Task } from '../types/task';
 
 type TaskAction =
@@ -29,8 +29,23 @@ const tasksReducer = (state: Task[], action: TaskAction): Task[] => {
   }
 };
 
+const STORAGE_KEY = 'taskivate.tasks';
+
+const loadTasks = (): Task[] => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) as Task[] : [];
+  }catch {
+    return [];
+  }
+};
+
 export const useTasks = () => {
-  const [tasks, dispatch] = useReducer(tasksReducer, []);
+  const [tasks, dispatch] = useReducer(tasksReducer, [], loadTasks);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+  }, [tasks]);
 
   const addTask = (text: string) => {
     dispatch({ type: 'ADD_TASK', payload: { text } });
