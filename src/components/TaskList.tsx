@@ -1,11 +1,17 @@
 import { useState } from 'react';
 import './TaskList.css';
-import { useTasks } from '../hooks/useTasks.ts';
 import { TaskItem } from './TaskItem.tsx';
+import { Task } from '../types/task.ts';
 
-const TaskList = () => {
+type Props = {
+  tasks: Task[];
+  addTask: (text: string) => void;
+  toggleTask: (id: number) => void;
+  deleteTask: (id: number) => void;
+};
+
+const TaskList = ({ tasks, addTask, toggleTask, deleteTask }: Props) => {
   const [taskText, setTaskText] = useState<string>('');
-  const { tasks, addTask, toggleTask, deleteTask } = useTasks();
 
   const handleAddTask = () => {
     if (!taskText.trim()) {
