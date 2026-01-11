@@ -35,9 +35,11 @@ Key files and directories:
 
 - `src/main.tsx` – React app entry point
 - `src/App.tsx` – main application component
-- `src/components/TodoList.tsx` – basic to‑do list component
+- `src/components/` - React components
+- `src/hooks/` - custom React hooks
 - `src/types/task.ts` – `Task` type used in the app state
 - `src/index.css` – global styles
+- `src/utils/` - helper functions
 - `eslint.config.js` – ESLint configuration (TS + React + Prettier)
 - `prettier.config.cjs` – Prettier configuration
 - `vite.config.js` – Vite configuration
